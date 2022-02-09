@@ -73,9 +73,12 @@ export default {
            { headers }
           
         )
-      .then((res) => console.log(res));
+      .then((res) => {
+         this.$router.push("/adminServices");
+        console.log(res)
+        });
 
-      this.$router.push("/adminServices");
+     
     },
     submitHandler(){
       if (this.$refs.form.validate()){

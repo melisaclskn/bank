@@ -1,32 +1,45 @@
 <template>
-  <v-navigation-drawer v-model="drawer" app>
-    <v-sheet color="grey lighten-4" class="pa-4">
-      <v-avatar class="mb-4" color="grey darken-1" size="64"></v-avatar>
+  <v-navigation-drawer v-model="drawer" permanent color="#334257" app>
+    <v-sheet class="px-4 py-5 justify-center align-center" color="#334257">
+      <v-avatar class="mb-2  justify-center align-center" color="#476072" size="64">
+        <v-icon dark> mdi-account </v-icon>
+      </v-avatar>
 
-      <div>{{ this.user.email }}</div>
+      <div> {{ this.user.email }} </div>
     </v-sheet>
 
     <v-divider></v-divider>
 
-    <v-list>
-      <v-list-item
-        v-for="link in links"
-        :key="link"
-        @click="goToPage(link.path)"
-        link
-      >
-        <v-list-item-icon>
-          <v-icon>{{ link.icon }}</v-icon>
-        </v-list-item-icon>
+    <v-list nav dense>
+      <v-list-item-group v-model="selectedItem" color="#EEEEEE">
+        <v-list-item
+          class="py-2 mt-4"
+          v-for="link in links"
+          :key="link"
+          @click="goToPage(link.path)"
+          link
+        >
+          <v-list-item-icon color="pink" class="color">
+            <v-icon color="rgb(240, 234, 234)">{{ link.icon }}</v-icon>
+          </v-list-item-icon>
 
-        <v-list-item-content>
-          <v-list-item-title>{{ link.title }}</v-list-item-title>
-        </v-list-item-content>
-      </v-list-item>
+          <v-list-item-content>
+            <v-list-item-title class="color">{{
+              link.title
+            }}</v-list-item-title>
+          </v-list-item-content>
+        </v-list-item>
+      </v-list-item-group>
     </v-list>
-    <v-btn depressed color="error" class="logout" @click.prevent="logOut()">
+    <!-- <v-btn depressed color="error" class="logout" @click.prevent="logOut()">
       Log out
-    </v-btn>
+    </v-btn> -->
+
+    <v-list-item  class="mb-12 justify-center align-end" depressed dark  two-line>
+      <v-btn  color="pink" class="logout" @click.prevent="logOut()">
+        Log out
+      </v-btn>
+    </v-list-item>
   </v-navigation-drawer>
 </template>
 <script>
@@ -45,7 +58,7 @@ export default {
         //   title: "Geçmiş İşlemleri",
         //   path: "/adminHistoryBalance",
         // },
-        { icon: "mdi-delete", title: "Servisler", path: "/adminServices" },
+        { icon: "mdi-file-table", title: "Servisler", path: "/adminServices" },
         {
           icon: "mdi-plus-box-multiple",
           title: "Hizmet Kaydı",
@@ -113,4 +126,8 @@ export default {
 };
 </script>
 <style scoped>
+.color {
+  font-size: 1.5em;
+  color:rgb(240, 234, 234);
+}
 </style>

@@ -96,8 +96,8 @@ components:{
           this.loading = true
           
         setTimeout(()=> {
-          this.loading = false
-          this.snackbar = true
+         // this.loading = false
+         // this.snackbar = true
           // this.error=true
         },2000)
       }

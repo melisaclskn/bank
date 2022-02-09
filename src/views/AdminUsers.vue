@@ -1,6 +1,6 @@
 <template>
+<div  class="grey-bg screen">
   <v-container>
-   
     <div v-if="!user"><h1>Lütfen giriş yapınız</h1></div>
     <div v-if="user">
       <v-row class="d-flex justify-center align-center"> </v-row>
@@ -35,10 +35,16 @@
                  <td>{{ user.name  }}</td>
                  <td>{{ user.balance  }}</td>
                <td>
-                  <v-btn  @click.prevent="update()" @click="goToUpdate(user)"  class="ma-1" color="green" plain dark> Güncelle </v-btn>
+                  <!-- <v-btn  @click.prevent="update()" @click="goToUpdate(user)"  class="ma-1" color="green" plain dark> Güncelle </v-btn> -->
+                <v-btn  @click.prevent="update()" @click="goToUpdate(user)" class="mx-2 dark-blue" plain fab dark small >
+                    <v-icon dark> mdi-pencil-outline </v-icon>
+                  </v-btn>
                 </td>
                 <td>
                   <v-btn  @click.prevent="remove(history.id)" class="ma-1" color="error" plain dark> sil </v-btn>
+                   <!-- <v-btn class="mx-2"  @click.prevent="remove(history.id)"  plain fab dark small color="error">
+                    <v-icon dark> mdi-delete </v-icon>
+                  </v-btn> -->
                 </td>
               </tr>
             </tbody>
@@ -47,6 +53,7 @@
       </v-row>
     </div>
   </v-container>
+</div>
 </template>
 <script>
 import axios from "axios";
@@ -119,6 +126,16 @@ export default {
 };
 </script>
 <style scoped>
+.dark-blue {
+  color: #334257 !important;
+  font-size: 1.05em !important;
+}
+.screen {
+  height: 100vh;
+}
+.grey-bg {
+  background-color: #eeeeee;
+}
 .black {
   background: purple;
 }
