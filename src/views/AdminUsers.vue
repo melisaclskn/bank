@@ -15,6 +15,7 @@
               align-center
               gradient
               title
+
             "
           >
            Kullanıcılar
@@ -22,10 +23,10 @@
           <v-simple-table>
             <thead>
               <tr>
-                <th scope="col">Kullanıcı Mail</th>
-                <th scope="col">Kullanıcı Ad</th>
-                 <th scope="col">Bakiye</th>
-                  <th scope="col"></th>
+                <th scope="col" class="dark-blue">Kullanıcı Mail</th>
+                <th scope="col" class="dark-blue">Kullanıcı Ad</th>
+                 <th scope="col" class="dark-blue">Bakiye</th>
+                  <th scope="col" class="dark-blue"></th>
                 <th scope="col"></th>
               </tr>
             </thead>
@@ -41,10 +42,10 @@
                   </v-btn>
                 </td>
                 <td>
-                  <v-btn  @click.prevent="remove(history.id)" class="ma-1" color="error" plain dark> sil </v-btn>
-                   <!-- <v-btn class="mx-2"  @click.prevent="remove(history.id)"  plain fab dark small color="error">
+                  <!-- <v-btn  @click.prevent="remove(user.id)" class="ma-1" color="error" plain dark> sil </v-btn> -->
+                   <v-btn class="mx-2"  @click.prevent="remove(history.id)"  plain fab dark small color="error">
                     <v-icon dark> mdi-delete </v-icon>
-                  </v-btn> -->
+                  </v-btn>
                 </td>
               </tr>
             </tbody>
@@ -156,12 +157,13 @@ export default {
   color: gold;
 }
 .gradient {
-  background: rgb(250, 206, 127);
+   background: rgb(51, 66, 87);
   background: linear-gradient(
-    90deg,
-    rgba(250, 206, 127, 1) 18%,
-    rgba(145, 31, 39, 1) 81%
+    99deg,
+    rgba(51, 66, 87, 1) 10%,
+    rgba(255, 255, 255, 1) 100%
   );
+  border-radius: 1.2em;
 }
 #mySelect {
   border: none;

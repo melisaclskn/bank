@@ -1,7 +1,7 @@
 <template>
+<div class="grey-bg screen">
   <v-container>
     <v-row class="d-flex justify-center align-center">
-  
     </v-row>
     <h1
             class="
@@ -19,13 +19,13 @@
           </h1>
     <v-row>
       
-      <v-col lg="6">
+      <v-col lg="6" class="grey-bg">
           
         <v-simple-table>
           <thead>
             <tr>
-              <th class="title" scope="col">Hizmet</th>
-              <th scope="col">Fiyat</th>
+              <th class="dark-blue" scope="col">Hizmet</th>
+              <th class="dark-blue" scope="col">Fiyat</th>
             </tr>
           </thead>
           <tbody>
@@ -83,6 +83,7 @@
       </v-col>
     </v-row>
   </v-container>
+</div>
 </template>
 <script>
 import axios from "axios";
@@ -192,6 +193,9 @@ export default {
 .black {
   background: purple;
 }
+.grey-bg {
+  background-color: #eeeeee;
+}
 .title {
   color: #cd3939 !important;
   font-size: 1.5em !important;
@@ -218,6 +222,13 @@ export default {
     rgba(250, 206, 127, 1) 18%,
     rgba(145, 31, 39, 1) 81%
   );
+}
+.dark-blue {
+  color: #334257 !important;
+  font-size: 1.05em !important;
+}
+.screen {
+  height: 100vh;
 }
 #mySelect {
   border: none;

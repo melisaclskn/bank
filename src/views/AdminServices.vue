@@ -85,7 +85,7 @@
             </tbody>
           </v-simple-table>
           <br /><br />
-          <v-btn to="/addService" color="green">Servis Ekle</v-btn>
+          <v-btn to="/addService" color="green" class="white">Servis Ekle</v-btn>
         </v-col>
       </v-row>
     </v-container>
@@ -190,6 +190,9 @@ export default {
 .dark-blue {
   color: #334257 !important;
   font-size: 1.05em !important;
+}
+.white{
+   color: #fff;
 }
 .border {
   border: #334257 !important;
