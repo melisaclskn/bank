@@ -1,4 +1,5 @@
 <template>
+<div class="grey-bg screen">
   <v-container>
     <div v-if="!user"><h1>Lütfen giriş yapınız</h1></div>
     <div v-if="user">
@@ -18,18 +19,19 @@
           >
             Kullanıcının Geçmişi
           </h1>
-          <v-simple-table>
+          <v-col class="grey-bg" >
+          <v-simple-table >
             <thead>
               <tr>
-                <th scope="col">Hizmeti Alan Kişi</th>
-                <th scope="col">Servis Adı</th>
-                <th scope="col">Servis Fiyatı</th>
-                <th scope="col">Adet</th>
-                <th scope="col">Para Girdisi</th>
-                <th scope="col">Eski Bakiye</th>
-                <th scope="col">Yeni Bakiye</th>
-                <th scope="col">Date</th>
-                <th scope="col"></th>
+                <th class="dark-blue" scope="col">Hizmeti Alan Kişi</th>
+                <th  class="dark-blue" scope="col">Servis Adı</th>
+                <th class="dark-blue" scope="col">Servis Fiyatı</th>
+                <th class="dark-blue" scope="col">Adet</th>
+                <th class="dark-blue" scope="col">Para Girdisi</th>
+                <th class="dark-blue" scope="col">Eski Bakiye</th>
+                <th class="dark-blue" scope="col">Yeni Bakiye</th>
+                <th class="dark-blue" scope="col">Date</th>
+                <th class="dark-blue" scope="col"></th>
               </tr>
             </thead>
             <tbody>
@@ -44,7 +46,10 @@
                 <!-- <td>{{history.balance  }}</td> -->
                 <td>{{ created_at }}</td>
                 <td>
-                  <v-btn
+                   <v-btn class="mx-2" @click.prevent="remove(history.id)" plain fab dark small color="error">
+                    <v-icon dark> mdi-delete </v-icon>
+                  </v-btn>
+                  <!-- <v-btn
                     @click.prevent="remove(history.id)"
                     class="ma-1"
                     color="error"
@@ -52,15 +57,17 @@
                     dark
                   >
                     sil
-                  </v-btn>
+                  </v-btn> -->
                 </td>
               </tr>
             </tbody>
           </v-simple-table>
+          </v-col>
         </v-col>
       </v-row>
     </div>
   </v-container>
+</div>
 </template>
 <script>
 import axios from "axios";
@@ -136,6 +143,16 @@ export default {
 };
 </script>
 <style scoped>
+.screen {
+  height: 100vh;
+}
+.dark-blue {
+  color: #334257 !important;
+  font-size:0.9em !important;
+}
+.grey-bg {
+  background-color: #eeeeee;
+}
 .black {
   background: purple;
 }

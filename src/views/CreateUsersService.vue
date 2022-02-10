@@ -98,7 +98,7 @@
               class="ma-2 btn"
               :loading="loading"
               :disabled="loading"
-              color="#911F27"
+              color="green"
               @click.prevent="amountOperations()"
             >
               Hizmet Al
@@ -229,12 +229,14 @@ export default {
   color: gold;
 }
 .gradient {
-  background: rgb(250, 206, 127);
+  background: rgb(51, 66, 87);
   background: linear-gradient(
-    90deg,
-    rgba(250, 206, 127, 1) 18%,
-    rgba(145, 31, 39, 1) 81%
+    99deg,
+    rgba(51, 66, 87, 1) 10%,
+    rgba(255, 255, 255, 1) 100%
   );
+  border-radius: 1.2em;
+
 }
 .dark-blue {
   color: #334257 !important;

@@ -40,8 +40,8 @@
       <v-row>
         <v-col lg="" class="grey-bg">
           <v-simple-table class="border">
-            <thead class="dark-blue">
-              <tr class="dark-blue">
+            <thead >
+              <tr >
                 <th class="dark-blue" scope="col">Hizmet</th>
                 <th class="dark-blue" scope="col">Açıklama</th>
                 <th class="dark-blue" scope="col">Fiyat</th>

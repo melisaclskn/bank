@@ -1,4 +1,5 @@
 <template>
+<div class="grey-bg screen">
   <v-container>
     <div v-if="!user"><h1>Lütfen giriş yapınız</h1></div>
     <div v-if="user">
@@ -21,11 +22,11 @@
           <v-simple-table>
             <thead>
               <tr>
-                <th scope="col">Kullanıcı Ad</th>
-                 <th scope="col">Mail</th>
-                <th scope="col">Bakiye</th>
-                <th scope="col"></th>
-                <th scope="col"></th>
+                <th scope="col" class="dark-blue">Kullanıcı Ad</th>
+                 <th scope="col" class="dark-blue">Mail</th>
+                <th scope="col" class="dark-blue">Bakiye</th>
+                <th scope="col" class="dark-blue"></th>
+                <th scope="col" class="dark-blue"></th>
               </tr>
             </thead>
             <tbody>
@@ -51,6 +52,7 @@
       </v-row>
     </div>
   </v-container>
+</div>
 </template>
 <script>
 import axios from "axios";
@@ -107,13 +109,20 @@ export default {
 };
 </script>
 <style scoped>
-.black {
-  background: purple;
+.dark-blue {
+  color: #334257 !important;
+  font-size: 1.05em !important;
+}
+.grey-bg {
+  background-color: #eeeeee;
 }
 .title {
   color: #fff !important;
   font-size: 1.5em !important;
   font-family: Georgia, "Times New Roman", Times, serif !important;
+}
+.screen {
+  height: 100vh;
 }
 .btn {
   color: #fff;
@@ -127,12 +136,13 @@ export default {
   color: gold;
 }
 .gradient {
-  background: rgb(250, 206, 127);
+   background: rgb(51, 66, 87);
   background: linear-gradient(
-    90deg,
-    rgba(250, 206, 127, 1) 18%,
-    rgba(145, 31, 39, 1) 81%
+    99deg,
+    rgba(51, 66, 87, 1) 10%,
+    rgba(255, 255, 255, 1) 100%
   );
+  border-radius: 1.2em;
 }
 #mySelect {
   border: none;
