@@ -1,89 +1,113 @@
 <template>
-<div class="grey-bg screen">
-  <v-container>
-    <v-row class="d-flex justify-center align-center">
-    </v-row>
-    <h1
-            class="
-              pa-10
-              ma-10
-              d-flex
-              justify-center
-              align-center
-              gradient
-              title
-              white
-            "
-          >
-           Hizmet Kaydı
-          </h1>
-    <v-row>
-      
-      <v-col lg="6" class="grey-bg">
-          
-        <v-simple-table>
-          <thead>
-            <tr>
-              <th class="dark-blue" scope="col">Hizmet</th>
-              <th class="dark-blue" scope="col">Fiyat</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr v-for="service in services" :key="service">
-              <td>{{ service.service_name }}</td>
-              <td>{{ service.price }} TL</td>
-            </tr>
-          </tbody>
-        </v-simple-table>
-      </v-col>
-      <v-col lg="6">
-        {{ selectedItem.service_name }}
-          <v-select
-          label="Almak istediğiniz hizmeti seçiniz."
-          :items="services"
-          v-model="selectedItem"
-          item-text="service_name"
-          item-value="id"
-          id="mySelect"
-          outlined
-          clearable
-          hide-selected
-          return-object
-        ></v-select>
+  <div class="grey-bg screen">
+    <v-container>
+      <v-row class="d-flex justify-center align-center"> </v-row>
+      <h1
+        class="
+          pa-10
+          ma-10
+          d-flex
+          justify-center
+          align-center
+          gradient
+          title
+          white
+        "
+      >
+        Hizmet Kaydı
+      </h1>
+      <v-row>
+        <v-col lg="6" class="grey-bg">
+          <v-simple-table>
+            <thead>
+              <tr>
+                <th class="dark-blue" scope="col">Hizmet</th>
+                <th class="dark-blue" scope="col">Fiyat</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr v-for="service in services" :key="service">
+                <td>{{ service.service_name }}</td>
+                <td>{{ service.price }} TL</td>
+              </tr>
+            </tbody>
+          </v-simple-table>
+        </v-col>
+        <v-col lg="6">
+          {{ selectedItem.service_name }}
+          <v-autocomplete
+            rounded
+            solo
+            label="Almak istediğiniz hizmeti seçiniz."
+            :items="services"
+            v-model="selectedItem"
+            item-text="service_name"
+            item-value="id"
+            id="mySelect"
+            outlined
+            clearable
+            hide-selected
+            return-object
+          ></v-autocomplete>
+          <!-- <v-select
+            label="Almak istediğiniz hizmeti seçiniz."
+            :items="services"
+            v-model="selectedItem"
+            item-text="service_name"
+            item-value="id"
+            id="mySelect"
+            outlined
+            clearable
+            hide-selected
+            return-object
+          ></v-select> -->
+             <v-autocomplete
+            rounded
+            solo
+            label="Hizmeti alan müşteriyi seçiniz."
+            :items="users"
+            v-model="selectedUser"
+            item-text="email"
+            item-value="id"
+            id="mySelect"
+            outlined
+            clearable
+            hide-selected
+            return-object
+          ></v-autocomplete>
+          <!-- <v-select
+            label="Hizmeti alan müşteriyi seçiniz."
+            :items="users"
+            v-model="selectedUser"
+            item-text="email"
+            item-value="id"
+            id="mySelect"
+            outlined
+            clearable
+            hide-selected
+            return-object
+          ></v-select> -->
 
-        <v-select
-          label="Hizmeti alan müşteriyi seçiniz."
-          :items="users"
-          v-model="selectedUser"
-          item-text="email"
-          item-value="id"
-          id="mySelect"
-          outlined
-          clearable
-          hide-selected
-          return-object
-        ></v-select>
-
-        <!-- <select>
+          <!-- <select>
            <option value="" disabled selected>Escolha uma conta</option>
            <option v-for="account in services_name" :key="account" :value="account">{{ account }}</option>
         </select> -->
-        <v-text-field v-model="quantity" label="Adet"></v-text-field>
-        <v-hover>
-          <v-btn
-            class="ma-2 btn"
-            :loading="loading"
-            :disabled="loading"
-            color="#911F27"
-            @click.prevent="amountOperations()"
-          >
-            Hizmet Al
-          </v-btn>
-        </v-hover>
-      </v-col>
-    </v-row>
-  </v-container>
-</div>
+          <v-text-field v-model="quantity" label="Adet"></v-text-field>
+          <v-hover>
+            <v-btn
+              class="ma-2 btn"
+              :loading="loading"
+              :disabled="loading"
+              color="#911F27"
+              @click.prevent="amountOperations()"
+            >
+              Hizmet Al
+            </v-btn>
+          </v-hover>
+        </v-col>
+      </v-row>
+    </v-container>
+  </div>
 </template>
 <script>
 import axios from "axios";
@@ -96,7 +120,7 @@ export default {
   mounted() {
     this.getHistoryInfo();
   },
-  
+
   created() {
     this.user = JSON.parse(localStorage.getItem("user"));
     this.getServices();
@@ -106,30 +130,26 @@ export default {
   data() {
     return {
       user: "",
-      users:[],
+      users: [],
       services: [],
       quantity: 0,
-      errorMessage:"",
+      errorMessage: "",
       selectedUser: "",
       selectedItem: "",
     };
   },
   methods: {
-     
     getUserInf() {
-    var token = localStorage.getItem("token");
-    const headers = {
-      Authorization: "Bearer " + token,
-    };
+      var token = localStorage.getItem("token");
+      const headers = {
+        Authorization: "Bearer " + token,
+      };
 
-    var res = axios
-      .get("/api/users", { headers })
-      .then((res) =>{
-        console.log(res , 1000)
-    this.user = res.data;
-      } );
-
-  },
+      var res = axios.get("/api/users", { headers }).then((res) => {
+        console.log(res, 1000);
+        this.user = res.data;
+      });
+    },
     selected() {
       console.log(this.selectedItem);
     },
@@ -139,11 +159,9 @@ export default {
         Authorization: "Bearer " + token,
       };
 
-
       var res = axios.get("api/user/allUsers", { headers }).then((res) => {
-       
-       this.users = res.data;
-        console.log(  this.users,"--------")
+        this.users = res.data;
+        console.log(this.users, "--------");
       });
     },
     getServices() {
@@ -170,22 +188,17 @@ export default {
           {
             service_name: this.selectedItem.service_name,
             quantity: this.quantity,
-            email:this.selectedUser.email
+            email: this.selectedUser.email,
           },
           { headers }
         )
         .then(() => {
-        
           this.getUserInf();
-        }) 
+        })
         .catch((error) => {
-          console.log(error)
-          }
-          );
-
-        
+          console.log(error);
+        });
     },
-    
   },
 };
 </script>
@@ -205,8 +218,8 @@ export default {
   color: #fff;
   width: 35%;
 }
-.white{
-  color:#fff !important;
+.white {
+  color: #fff !important;
 }
 .bakiye {
   margin: 0 0 0 10rem;
