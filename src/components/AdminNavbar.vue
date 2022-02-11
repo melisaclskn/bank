@@ -1,15 +1,12 @@
 <template>
   <v-navigation-drawer v-model="drawer" permanent color="#334257" app>
-    <v-sheet class="px-4 py-5 justify-center align-center" color="#334257">
-      <v-avatar class="mb-2  justify-center align-center" color="#476072" size="64">
+    <v-sheet class="px-4 py-5 justify-center" color="#334257">
+      <v-avatar class="mb-2" color="#476072" size="64">
         <v-icon dark> mdi-account </v-icon>
       </v-avatar>
-
-      <div> {{ this.user.email }} </div>
+      <div class="white-color">{{ this.user.email }}</div>
     </v-sheet>
-
     <v-divider></v-divider>
-
     <v-list nav dense>
       <v-list-item-group v-model="selectedItem" color="#EEEEEE">
         <v-list-item
@@ -35,8 +32,8 @@
       Log out
     </v-btn> -->
 
-    <v-list-item  class="mb-12 justify-center align-end" depressed dark  two-line>
-      <v-btn  color="pink" class="logout" @click.prevent="logOut()">
+    <v-list-item class="mb-12 justify-center align-end" depressed dark two-line>
+      <v-btn color="pink" class="logout" @click.prevent="logOut()">
         Log out
       </v-btn>
     </v-list-item>
@@ -128,6 +125,9 @@ export default {
 <style scoped>
 .color {
   font-size: 1.5em;
-  color:rgb(240, 234, 234);
+  color: rgb(240, 234, 234);
+}
+.white-color {
+  color: rgb(240, 234, 234);
 }
 </style>

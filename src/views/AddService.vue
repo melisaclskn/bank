@@ -1,4 +1,5 @@
 <template>
+<div  class="grey-bg screen">
   <v-container >
     <h1
             class="
@@ -32,7 +33,9 @@
       <v-btn color="error" class="mr-4" @click="reset"> Form Sıfırla </v-btn>
     </v-form>
   </v-container>
+  </div>
 </template>
+
 <script>
 import axios from 'axios'
 export default {
@@ -93,8 +96,11 @@ export default {
 };
 </script>
 <style scoped>
-.black {
-  background: purple;
+.screen {
+  height: 100vh;
+}
+.grey-bg {
+  background-color: #eeeeee;
 }
 .title {
   color: #cd3939 !important;
@@ -116,12 +122,13 @@ export default {
   color: gold;
 }
 .gradient {
-  background: rgb(250, 206, 127);
+ background: rgb(51, 66, 87);
   background: linear-gradient(
-    90deg,
-    rgba(250, 206, 127, 1) 18%,
-    rgba(145, 31, 39, 1) 81%
+    99deg,
+    rgba(51, 66, 87, 1) 10%,
+    rgba(255, 255, 255, 1) 100%
   );
+  border-radius: 1.2em;
 }
 #mySelect {
   border: none;

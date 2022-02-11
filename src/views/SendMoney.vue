@@ -1,4 +1,5 @@
 <template>
+<div  class="grey-bg screen">
   <v-container>
     <v-row class="d-flex justify-center align-center">
   
@@ -19,10 +20,10 @@
           </h1>
     <v-row>
       
-      <v-col lg="6" > 
+      <v-col class="justify-center" > 
      
 
-        <v-select
+        <!-- <v-select
           label="Para yüklemek istediğiniz müşteriyi seçiniz."
           :items="users"
           v-model="selectedUser"
@@ -33,7 +34,21 @@
           clearable
           hide-selected
           return-object
-        ></v-select>
+        ></v-select> -->
+        <v-autocomplete
+            rounded
+            solo
+            label="Para yüklemek istediğiniz müşteriyi seçiniz."
+            :items="users"
+            v-model="selectedUser"
+            item-text="email"
+            item-value="id"
+            id="mySelect"
+            outlined
+            clearable
+            hide-selected
+            return-object
+          ></v-autocomplete>
 
         <!-- <select>
            <option value="" disabled selected>Escolha uma conta</option>
@@ -45,7 +60,7 @@
             class="ma-2 btn"
             :loading="loading"
             :disabled="loading"
-            color="#911F27"
+            color="green"
             @click.prevent="sendMoney()"
           >
             Para Yükle
@@ -54,6 +69,7 @@
       </v-col>
     </v-row>
   </v-container>
+</div>
 </template>
 <script>
 import axios from "axios";
@@ -145,8 +161,11 @@ export default {
 };
 </script>
 <style scoped>
-.black {
-  background: purple;
+.screen {
+  height: 100vh;
+}
+.grey-bg {
+  background-color: #eeeeee;
 }
 .title {
   color: #cd3939 !important;
@@ -168,12 +187,13 @@ export default {
   color: gold;
 }
 .gradient {
-  background: rgb(250, 206, 127);
+background: rgb(51, 66, 87);
   background: linear-gradient(
-    90deg,
-    rgba(250, 206, 127, 1) 18%,
-    rgba(145, 31, 39, 1) 81%
+    99deg,
+    rgba(51, 66, 87, 1) 10%,
+    rgba(255, 255, 255, 1) 100%
   );
+  border-radius: 1.2em;
 }
 #mySelect {
   border: none;

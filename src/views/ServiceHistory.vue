@@ -19,7 +19,7 @@
           >
            Hizmet Geçmişi
           </h1>
-          <v-simple-table>
+          <v-simple-table >
             <thead>
               <tr>
                 <th scope="col" class="dark-blue">Kullanıcı Ad</th>

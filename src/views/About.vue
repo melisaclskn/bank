@@ -1,4 +1,5 @@
 <template>
+<div class="grey-bg screen">
   <v-container>
     <nav-bar :user="user" />
     <v-row class="d-flex justify-center align-center">
@@ -14,6 +15,7 @@
             <v-list-item-title class="text-h4">
               {{ user.balance }} TL
             </v-list-item-title>
+            {{ user.email }}
           </v-list-item-content>
 
           <v-list-item-avatar tile size="80"
@@ -41,9 +43,9 @@
         <v-simple-table>
           <thead>
             <tr>
-              <th class="title" scope="col">Hizmet</th>
-              <th class="title" scope="col">Açıklama</th>
-              <th scope="col">Fiyat</th>
+              <th class="dark-blue" scope="col">Hizmet</th>
+              <th class="dark-blue" scope="col">Açıklama</th>
+              <th scope="col" class="dark-blue">Fiyat</th>
             </tr>
           </thead>
           <tbody>
@@ -102,6 +104,7 @@
       </v-col>
     </v-row>
   </v-container>
+</div>
 </template>
 <script>
 import axios from "axios";
@@ -214,8 +217,20 @@ export default {
 };
 </script>
 <style scoped>
-.black {
-  background: purple;
+.dark-blue {
+  color: #334257 !important;
+  font-size: 1.05em !important;
+}
+.grey-bg {
+  background-color: #eeeeee;
+}
+.title {
+  color: #fff !important;
+  font-size: 1.5em !important;
+  font-family: Georgia, "Times New Roman", Times, serif !important;
+}
+.screen {
+  height: 100vh;
 }
 .title {
   color: #cd3939 !important;
@@ -234,12 +249,13 @@ export default {
   color: gold;
 }
 .gradient {
-  background: rgb(250, 206, 127);
+   background: rgb(51, 66, 87);
   background: linear-gradient(
-    90deg,
-    rgba(250, 206, 127, 1) 18%,
-    rgba(145, 31, 39, 1) 81%
+    99deg,
+    rgba(51, 66, 87, 1) 10%,
+    rgba(255, 255, 255, 1) 100%
   );
+  border-radius: 1.2em;
 }
 #mySelect {
   border: none;

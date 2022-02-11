@@ -1,5 +1,5 @@
 <template>
-  <v-app-bar app color="#9A9483 " dark>
+  <v-app-bar app color="#334257 " dark>
     <div class="d-flex align-center">
       <h1>Hesabım</h1>
     </div>
@@ -23,9 +23,9 @@
       <v-btn text to="/historyBalance">
         <span class="mr-2">Geçmiş İşlemler</span>
       </v-btn>
-      <v-btn text to="/services">
+      <!-- <v-btn text to="/services">
         <span class="mr-2">Hizmetler</span>
-      </v-btn>
+      </v-btn> -->
        
       <!--logout button-->
       <v-btn text to="/home" @click.native="logOut">
